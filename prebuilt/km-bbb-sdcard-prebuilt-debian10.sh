@@ -141,7 +141,7 @@ debian_fs_copy_sd()
 
 usage()
 {
-        echo -e "${BRed}usage: ${Green} sudo $(basename $0) --mmc /dev/sdX ${NC}${Red}"
+        echo -e "${BRed}usage: ${Green} sudo ./$(basename $0) --mmc /dev/sdX ${NC}${Red}"
 	cat <<-__EOF__
 
 		CAUTION:mightbe your harddisk FORMAT. Give proper Device name	
