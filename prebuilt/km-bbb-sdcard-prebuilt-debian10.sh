@@ -126,14 +126,15 @@ debian_fs_copy_sd()
 
 	sudo mkdir -p /mnt/rootfs
 	sudo mount ${media}1 /mnt/rootfs
-	if [ -f km-bbb-debian10.1.tar.gz ] ;then
-		echo "file is found km-bbb-debian10.1.tar.gz"
+	if [ -f km-bbb-debian10.2.tar.gz ] ;then
+		echo "km-bbb-debian10.1.tar.gz found"
 	else
-		echo -e "${Red}wget http://142.93.218.33/elinux/km-bbb-debian10.1.tar.gz${NC}${Purple}"
-		wget http://142.93.218.33/elinux/km-bbb-debian10.1.tar.gz
+		echo "km-bbb-debian10.1.tar.gz not found and download from kmserver"
+		echo -e "${Red}wget http://142.93.218.33/elinux/km-bbb-debian10.2.tar.gz${NC}${Purple}"
+		wget http://142.93.218.33/elinux/km-bbb-debian10.2.tar.gz
 	fi
 	echo -e "${Red}sudo tar -xvf km-bbb-debian10.1.tar.gz -C /mnt/rootfs/${NC}"
-	sudo tar -xvf km-bbb-debian10.1.tar.gz -C /mnt/rootfs/
+	sudo tar -xvf km-bbb-debian10.2.tar.gz -C /mnt/rootfs/
 	echo -e "${Red}syncing${NC}"
 	sync
 	unmount_all_drive_partitions
