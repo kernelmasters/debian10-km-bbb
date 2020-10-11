@@ -15,7 +15,7 @@ $ cd ~/KM_GITHUB/debian10-km-bbb
    `$ cd ~/KM_GITHUB/debian10-km-bbb/prebuilt`
 2. Format SD Card with 1 partition and load boot loader images [MLO, u-boot.img] and debian 10 rootfs using the below script.
 
-   `$ sudo ./km-bbb-sdcard-prebuilt-debian10.sh /dev/sd<x>`
+   `$ sudo ./km-bbb-sdcard-prebuilt-debian10.sh --mmc /dev/sd<x>`
    
    where 'x' indicates sd card device name. find out using dmesg command after inserting sd card.
    script run 5 to 10 minutes.   
