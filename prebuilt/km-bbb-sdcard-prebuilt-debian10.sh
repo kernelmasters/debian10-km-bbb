@@ -75,8 +75,8 @@ MLO_uboot_copy_sd()
         echo -e "${Green}-----------------------------${NC}"
         echo "Zeroing out Drive"
         echo -e "${Green}-----------------------------${NC}"
-        	dd if=/dev/zero of=${media} bs=1M count=100 || drive_error_ro
-        	sync
+  #      	dd if=/dev/zero of=${media} bs=1M count=100 || drive_error_ro
+  #      	sync
         	dd if=${media} of=/dev/null bs=1M count=100
       		sync
 	echo Using dd to place bootloader on drive
@@ -109,7 +109,12 @@ sync
 
 	 echo -e "${Red}Formating with:${NC} "
 	#   sudo mkfs.ext4 -L rootfs ${media}1
-	sudo  mkfs.ext4  ${media}1 -L rootfs 
+
+	if [ $media == "/dev/mmcblk0" ]; then
+		sudo  mkfs.ext4  ${media}p1 -L rootfs
+	else
+		sudo  mkfs.ext4  ${media}1 -L rootfs
+	fi
 	# sudo mkfs.ext4 -L rootfs ${DISK}1
 	echo -e "${Green}-----------------------------"
 	echo -e "-----------------------------${NC}"
@@ -125,7 +130,11 @@ debian_fs_copy_sd()
         echo -e "${Green}-----------------------------${NC}"
 
 	sudo mkdir -p /mnt/rootfs
-	sudo mount ${media}1 /mnt/rootfs
+        if [ $media == "/dev/mmcblk0" ]; then
+		sudo mount ${media}p1 /mnt/rootfs
+	else
+		sudo mount ${media}1 /mnt/rootfs
+	fi
 	if [ -f km-bbb-debian10.2.tar.gz ] ;then
 		echo "km-bbb-debian10.1.tar.gz found"
 	else
@@ -142,11 +151,13 @@ debian_fs_copy_sd()
 
 usage()
 {
-        echo -e "${BRed}usage: ${Green} sudo ./$(basename $0) --mmc /dev/sdX ${NC}${Red}"
+        echo -e "${BRed}usage: ${Green} sudo ./$(basename $0) --mmc /dev/[drive] ${NC}${Red}"
+        echo "       drive is 'sdb', 'mmcblk0'"
+
 	cat <<-__EOF__
 
 		CAUTION:mightbe your harddisk FORMAT. Give proper Device name	
-		Find sd card parition name with lsblk command and it replace with X.
+		Find sd card parition name with lsblk command and it replace with drive.
 
 	__EOF__
 	
@@ -154,6 +165,9 @@ usage()
 }
 
 if [ -z "$1" ]; then
+	usage
+fi
+if [ $# -ne 2 ]; then
 	usage
 fi
 # parse commandline options
