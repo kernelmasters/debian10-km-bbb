@@ -15,9 +15,9 @@ $ cd ~/KM_GITHUB/debian10-km-bbb
    `$ cd ~/KM_GITHUB/debian10-km-bbb/prebuilt`
 2. Format SD Card with 1 partition and load boot loader images [MLO, u-boot.img] and debian 10 rootfs using the below script.
 
-   `$ sudo ./km-bbb-sdcard-prebuilt-debian10.sh --mmc /dev/sd<x>`
+   `$ sudo ./km-bbb-sdcard-prebuilt-debian10.sh --mmc /dev/[drive]`
    
-   where 'x' indicates sd card device name. find out using dmesg command after inserting sd card.
+   "drive" is sdb or mmcblk0. find out using dmesg command after inserting sd card.
    script run 5 to 10 minutes.   
 3. Insert SDcard on BBB target and press switch2 and power on board. "km_bootmenu" choose sd card option and now BBB booting from SD card.
 4. By default `username:km; password:km` enter login prompt. And update software packages otherwise sudo permission problem encounter.
