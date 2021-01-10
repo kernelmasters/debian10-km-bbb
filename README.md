@@ -23,3 +23,17 @@ $ cd ~/KM_GITHUB/debian10-km-bbb
 4. By default `username:km; password:km` enter login prompt. And update software packages otherwise sudo permission problem encounter.
 
    `$ sudo apt-get update`
+
+
+## MLO, U-boot & Kernel Versions
+
+MLO [SPL] Version: 
+`U-Boot SPL 2019.04KernelMasters-g9d37c406 (Jan 10 2021 - 23:27:22 +0530)`
+
+U-Boot Version:
+`U-Boot 2019.04KernelMasters-g9d37c406 (Jan 10 2021 - 23:27:22 +0530)`
+`Source: KM_GITHUB/beagleboneblack-uboot.git - Tag: km-bbb`
+
+Kernel Version:
+`Linux KM-BBB 4.19.94-gc8fc2bfff-dirty #1 SMP Fri Dec 25 17:17:24 IST 2020 armv7l GNU/Linux`
+`Source: KM_GITLAB/beagleboneblack-kernel.git - Commit ID:25ae2381`
