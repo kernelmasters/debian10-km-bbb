@@ -144,6 +144,15 @@ debian_fs_copy_sd()
 	fi
 	echo -e "${Red}sudo tar -xvf km-bbb-debian10.3.tar.gz -C /mnt/rootfs/${NC}"
 	sudo tar -xvf km-bbb-debian10.3.tar.gz -C /mnt/rootfs/
+        
+	echo -e "${Red}sudo cp ./MLO ./u-boot.img  /mnt/rootfs/opt/backup/uboot/${NC}"
+        sudo rm  /mnt/rootfs/opt/backup/uboot/MLO
+        sudo rm  /mnt/rootfs/opt/backup/uboot/u-boot.img
+
+	sudo cp ./MLO   /mnt/rootfs/opt/backup/uboot/ 
+	sudo cp ./u-boot.img   /mnt/rootfs/opt/backup/uboot/ 
+	sudo cp ./MLO   /mnt/rootfs/boot/uboot 
+	sudo cp ./u-boot.img   /mnt/rootfs/boot/uboot/ 
 	echo -e "${Red}syncing${NC}"
 	sync
 	unmount_all_drive_partitions
