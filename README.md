@@ -4,7 +4,7 @@
 ```sh
 $ mkdir ~/KM_GITHUB
 $ cd ~/KM_GITHUB
-$ git clone git@github.com:kernel-masters/debian10-km-bbb.git
+$ git clone https://github.com/kernelmasters/debian10-km-bbb.git
 $ cd ~/KM_GITHUB/debian10-km-bbb
 ```
 
