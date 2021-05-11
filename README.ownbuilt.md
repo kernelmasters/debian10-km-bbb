@@ -5,7 +5,7 @@
 1. Download u-boot source code
 ```sh
 $ cd ~/KM_GITHUB/
-$ git clone git@github.com:kernel-masters/beagleboneblack-uboot.git
+$ git clone https://github.com/kernelmasters/beagleboneblack-uboot.git
 $ cd beagleboneblack-uboot
 ```
 2. Configure u-boot source code for KM-BBB and build using the below scirpt. It takes 3 to 5 minutes.
