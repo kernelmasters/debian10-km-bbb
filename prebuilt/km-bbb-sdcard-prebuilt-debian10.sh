@@ -139,8 +139,8 @@ debian_fs_copy_sd()
 		echo "km-bbb-debian10.4.tar.gz found"
 	else
 		echo "km-bbb-debian10.3.tar.gz not found and download from kmserver"
-		echo -e "${Red}wget http://142.93.218.33/elinux/km-bbb-debian10.3.tar.gz${NC}${Purple}"
-		wget http://142.93.218.33/elinux/km-bbb-debian10.3.tar.gz
+		echo -e "${Red}wget http://142.93.218.33/elinux/km-bbb-debian10.4.tar.gz${NC}${Purple}"
+		wget http://142.93.218.33/elinux/km-bbb-debian10.4.tar.gz
 	fi
 	echo -e "${Red}sudo tar -xvf km-bbb-debian10.4.tar.gz  ---- wait ---${NC}"
 	sudo tar -xvf km-bbb-debian10.4.tar.gz
