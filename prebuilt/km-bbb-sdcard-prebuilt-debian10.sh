@@ -135,17 +135,17 @@ debian_fs_copy_sd()
 	else
 		sudo mount ${media}1 /mnt/rootfs
 	fi
-	if [ -f km-bbb-debian10.3.tar.gz ] ;then
-		echo "km-bbb-debian10.3.tar.gz found"
+	if [ -f km-bbb-debian10.4.tar.gz ] ;then
+		echo "km-bbb-debian10.4.tar.gz found"
 	else
 		echo "km-bbb-debian10.3.tar.gz not found and download from kmserver"
 		echo -e "${Red}wget http://142.93.218.33/elinux/km-bbb-debian10.3.tar.gz${NC}${Purple}"
 		wget http://142.93.218.33/elinux/km-bbb-debian10.3.tar.gz
 	fi
-	echo -e "${Red}sudo tar -xvf km-bbb-debian10.3.tar.gz  ---- wait ---${NC}"
-	sudo tar -xvf km-bbb-debian10.3.tar.gz
-	echo -e "${Red}sudo tar -xvf km-bbb-debian10.3.tar -C /mnt/rootfs/${NC}"
-	sudo tar -xvf km-bbb-debian10.3.tar -C /mnt/rootfs/
+	echo -e "${Red}sudo tar -xvf km-bbb-debian10.4.tar.gz  ---- wait ---${NC}"
+	sudo tar -xvf km-bbb-debian10.4.tar.gz
+	echo -e "${Red}sudo tar -xvf km-bbb-debian10.4.tar -C /mnt/rootfs/${NC}"
+	sudo tar -xvf km-bbb-debian10.4.tar -C /mnt/rootfs/
         
 	echo -e "${Red}sudo cp ./MLO ./u-boot.img  /mnt/rootfs/opt/backup/uboot/${NC}"
         sudo rm  /mnt/rootfs/opt/backup/uboot/MLO
@@ -157,8 +157,8 @@ debian_fs_copy_sd()
 	sudo cp ./u-boot.img   /mnt/rootfs/boot/uboot/ 
 	echo -e "${Red}syncing${NC}"
 	sync
-	echo -e "${Red}sudo rm km-bbb-debian10.3.tar${NC}"
-	sudo rm km-bbb-debian10.3.tar
+	echo -e "${Red}sudo rm km-bbb-debian10.4.tar${NC}"
+	sudo rm km-bbb-debian10.4.tar
 	unmount_all_drive_partitions
 }
 
